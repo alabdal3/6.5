@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Generator</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="screen.css">
+</head>
+<body>
+    <div x-data="randomNameGenerator()" class="container">
+        <h1 x-text="name"></h1>
+        <button @click="generateName()">Generate Random Name</button>
+        <button @click="resetName()">Reset</button>
+    </div>
+
+    <script>
+        function randomNameGenerator() {
+            return {
+                names: ["Luke Skywalker", "Darth Vader", "Obi-Wan Kenobi", "Yoda", "Emperor Palpatine", "Mace Windu", "Qui-Gon Jinn", "Ahsoka Tano", "Count Dooku", "Ben Solo"],
+                defaultText: "Click the button to generate a name",
+                name: "Click the button to generate a name",
+                generateName() {
+                    this.name = this.names[Math.floor(Math.random() * this.names.length)];
+                },
+                resetName() {
+                    this.name = this.defaultText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
